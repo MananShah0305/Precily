@@ -1,0 +1,1 @@
+{"POST /box/ 200":18,"PATCH /box/:id 200":14,"GET /box/ 200":165,"GET /box/ 304":14,"GET unknown route 404":1}

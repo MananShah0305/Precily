@@ -8,14 +8,20 @@ import Filebase from 'react-file-base64';
 import TextField from '@mui/material/TextField';
 import SweetAlert from 'react-bootstrap-sweetalert'
 
-let temp1Content = ''
-let temp1Image = ''
+let temp1ContentAdd = ''
+let temp1ImageAdd = ''
+let temp1ContentEdit = ''
+let temp1ImageEdit= ''
 
-let temp2Content = ''
-let temp2Image = ''
+let temp2ContentAdd = ''
+let temp2ImageAdd = ''
+let temp2ContentEdit = ''
+let temp2ImageEdit = ''
 
-let temp3Content = ''
-let temp3Image = ''
+let temp3ContentAdd = ''
+let temp3ImageAdd = ''
+let temp3ContentEdit = ''
+let temp3ImageEdit = ''
 
 let alert;
 
@@ -91,12 +97,13 @@ const SplitComponent = () => {
                 .catch(err => console.log(err))
         }
         else {
-            temp1Content = box1.content
-            temp1Image = box1.image
+            temp1ContentAdd = box1.content
+            temp1ImageAdd = box1.image
             setBox1({
                 ...box1,
                 content: '',
-                add: true
+                add: true,
+                edit: false
             })
         }
     }
@@ -123,23 +130,33 @@ const SplitComponent = () => {
                 .catch(err => console.log(err))
         }
         else {
-            temp1Content = box1.content
-            temp1Image = box1.image
+            temp1ContentEdit = box1.content
+            temp1ImageEdit = box1.image
             setBox1({
                 ...box1,
-                edit: true
+                edit: true,
+                add: false,
             })
         }
     }
 
     const cancelChange1 = () => {
-        setBox1({
-            ...box1,
-            content: temp1Content,
-            image: temp1Image,
-            edit: false,
-            add: false
-        })
+        if (box1.add === true) {
+            setBox1({
+                ...box1,
+                content: temp1ContentAdd,
+                image: temp1ImageAdd,
+                add: false
+            })
+        }
+        else if (box1.edit === true) {
+            setBox1({
+                ...box1,
+                content: temp1ContentEdit,
+                image: temp1ImageEdit,
+                edit: false,
+            })
+        }
     }
 
     const changeValue2 = (e) => {
@@ -171,12 +188,13 @@ const SplitComponent = () => {
                 .catch(err => console.log(err))
         }
         else {
-            temp2Content = box2.content
-            temp2Image = box2.image
+            temp2ContentAdd = box2.content
+            temp2ImageAdd = box2.image
             setBox2({
                 ...box2,
                 content: '',
-                add: true
+                add: true,
+                edit: false
             })
         }
     }
@@ -203,23 +221,33 @@ const SplitComponent = () => {
                 .catch(err => console.log(err))
         }
         else {
-            temp2Content = box2.content
-            temp2Image = box2.image
+            temp2ContentEdit = box2.content
+            temp2ImageEdit = box2.image
             setBox2({
                 ...box2,
-                edit: true
+                edit: true,
+                add: false
             })
         }
     }
 
     const cancelChange2 = () => {
-        setBox2({
-            ...box2,
-            content: temp2Content,
-            image: temp2Image,
-            edit: false,
-            add: false
-        })
+        if (box2.add === true) {
+            setBox2({
+                ...box2,
+                content: temp2ContentAdd,
+                image: temp2ImageAdd,
+                add: false
+            })
+        }
+        else if (box2.edit === true) {
+            setBox2({
+                ...box2,
+                content: temp2ContentEdit,
+                image: temp2ImageEdit,
+                edit: false,
+            })
+        }
     }
 
     const changeValue3 = (e) => {
@@ -251,12 +279,13 @@ const SplitComponent = () => {
                 .catch(err => console.log(err))
         }
         else {
-            temp3Content = box3.content
-            temp3Image = box3.image
+            temp3ContentAdd = box3.content
+            temp3ImageAdd = box3.image
             setBox3({
                 ...box3,
                 content: '',
-                add: true
+                add: true,
+                edit:false
             })
         }
     }
@@ -283,23 +312,33 @@ const SplitComponent = () => {
                 .catch(err => console.log(err))
         }
         else {
-            temp3Content = box3.content
-            temp3Image = box3.image
+            temp3ContentEdit = box3.content
+            temp3ImageEdit = box3.image
             setBox3({
                 ...box3,
-                edit: true
+                edit: true,
+                add:false
             })
         }
     }
 
     const cancelChange3 = () => {
-        setBox3({
-            ...box3,
-            content: temp3Content,
-            image: temp3Image,
-            edit: false,
-            add: false
-        })
+        if (box3.add === true) {
+            setBox3({
+                ...box3,
+                content: temp3ContentAdd,
+                image: temp3ImageAdd,
+                add: false
+            })
+        }
+        else if (box3.edit === true) {
+            setBox3({
+                ...box3,
+                content: temp3ContentEdit,
+                image: temp3ImageEdit,
+                edit: false
+            })
+        }
     }
 
     return (
@@ -307,13 +346,13 @@ const SplitComponent = () => {
             {
                 alertStatus && alert
             }
-            <Split sizes={[0, 100, 0]} minSize={[0,1000, 0]} style={{ display:'flex',maxWidth: '99.6vw',overflow:'hidden' }}>
+            <Split sizes={[0, 100, 0]} minSize={[0, 1000, 0]} style={{ display: 'flex', maxWidth: '99.6vw', overflow: 'hidden' }}>
                 <div ></div>
-                <Split direction='vertical' sizes={[0, 100, 0]} minSize={[0,500, 0]} style={{ height: '100vh' ,overflow:'hidden'}}>
-                <div ></div>
+                <Split direction='vertical' sizes={[0, 100, 0]} minSize={[0, 500, 0]} style={{ height: '100vh', overflow: 'hidden' }}>
+                    <div ></div>
                     <Split direction='vertical' sizes={[30, 70]} minSize={[240, 240]}>
                         <Split style={{ display: 'flex' }} sizes={[40, 60]} minSize={[240, 240]}>
-                            <div style={{ backgroundColor: 'rgb(176,208,254)', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center'}}>
+                            <div style={{ backgroundColor: 'rgb(176,208,254)', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
                                 {
                                     box1.add || box1.edit ? (
                                         <>

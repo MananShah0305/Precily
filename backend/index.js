@@ -14,6 +14,8 @@ app.use(cors())
 
 const FILE_PATH = 'stats.json'
 
+//-------------------Code to get stats about the number of times the different APIs have been executed-------------
+
 const getRoute = (req) => {
     const route = req.route ? req.route.path : ''
     const baseUrl = req.baseUrl ? req.baseUrl : ''
@@ -52,6 +54,8 @@ app.use((req, res, next) => {
 app.get('/stats/', (req, res) => {
     res.json(readStats())
 })
+
+//----------------------------------------------------------------------------------------------
 
 const port = process.env.PORT||5000;
 const url=process.env.CONNECTION_URL

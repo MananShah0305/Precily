@@ -41,6 +41,7 @@ export const addBoxInfo = (req, res) => {
         .catch(err => console.log(err))
 }
 
+//Update API to update the existing entry
 export const editBoxInfo = (req, res) => {
     boxModel.findOneAndUpdate({ name: req.body.name, 'boxInfo._id': req.body.id }, {
         $set: {

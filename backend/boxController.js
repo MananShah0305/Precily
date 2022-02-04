@@ -1,6 +1,6 @@
 import boxModel from './boxModel.js'
 
-//Get API to return the entire information stored the collection
+//Get API to return the entire information stored in the collection
 export const getBoxInfo = (req, res) => {
     boxModel.find()
         .then(result => {

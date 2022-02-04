@@ -1,5 +1,6 @@
 import boxModel from './boxModel.js'
 
+//Get API to return the entire information stored the collection
 export const getBoxInfo = (req, res) => {
     boxModel.find()
         .then(result => {
@@ -11,6 +12,7 @@ export const getBoxInfo = (req, res) => {
         .catch(err => console.log(err))
 }
 
+//Get API to return the required data from the collection
 export const getBoxInfoFrontEnd = async (req, res) => {
     const box1Doc = await boxModel.findOne({ name: 'box1' }, { boxInfo: { $slice: 1 } })
     const box2Doc = await boxModel.findOne({ name: 'box2' }, { boxInfo: { $slice: 1 } })
@@ -19,6 +21,7 @@ export const getBoxInfoFrontEnd = async (req, res) => {
 
 }
 
+//Add API to add a new entry into the collection
 export const addBoxInfo = (req, res) => {
     boxModel.findOneAndUpdate({ name: req.body.name }, {
         $push: {

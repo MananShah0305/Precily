@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Precily/static/css/main.a765b80b.css",
+    "main.js": "/Precily/static/js/main.e8427dbf.js",
+    "static/js/787.8d8835d0.chunk.js": "/Precily/static/js/787.8d8835d0.chunk.js",
+    "index.html": "/Precily/index.html",
+    "main.a765b80b.css.map": "/Precily/static/css/main.a765b80b.css.map",
+    "main.e8427dbf.js.map": "/Precily/static/js/main.e8427dbf.js.map",
+    "787.8d8835d0.chunk.js.map": "/Precily/static/js/787.8d8835d0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a765b80b.css",
+    "static/js/main.e8427dbf.js"
+  ]
+}

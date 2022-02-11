@@ -57,7 +57,7 @@ app.get('/stats/', (req, res) => {
 
 //----------------------------------------------------------------------------------------------
 
-const port = process.env.PORT||5000;
+const port = process.env.PORT || 5000;
 const url=process.env.CONNECTION_URL
 
 app.get('/', (req, res) => {
@@ -65,6 +65,10 @@ app.get('/', (req, res) => {
 })
 
 const CONNECTION_URL = url
+
+if(process.env.NODE_ENV=='production'){
+    app.use(express.static("precily-frontend/build"))
+}
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

@@ -35,7 +35,7 @@ const SplitComponent = () => {
 
     useEffect(() => {
         console.time('getAPI')
-        axios.get('box')
+        axios.get('/box')
             .then((res) => {
                 console.timeEnd('getAPI')
                 const params = {

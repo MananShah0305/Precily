@@ -70,10 +70,6 @@ app.get('/', (req, res) => {
 
 const CONNECTION_URL = url
 
-if(process.env.NODE_ENV=='production'){
-    app.use(express.static("precily-frontend/build"))
-}
-
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         app.listen(port, () => {
